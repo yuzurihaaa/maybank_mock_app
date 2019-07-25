@@ -1,0 +1,9 @@
+{
+  "@@last_modified": "2019-07-24T23:23:41.395149",
+  "title": "Maybank2u",
+  "@title": {
+    "description": "Title for the application",
+    "type": "text",
+    "placeholders": {}
+  }
+}
