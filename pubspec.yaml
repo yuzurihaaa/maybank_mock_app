@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
@@ -35,6 +35,8 @@ dependencies:
   intl_translation: ^0.17.5
   get_it: ^1.0.3+2
   flutter_svg: ^0.13.1
+  cached_network_image: ^1.1.1
+  quiver: ^2.0.3
 
 dev_dependencies:
   flutter_test:

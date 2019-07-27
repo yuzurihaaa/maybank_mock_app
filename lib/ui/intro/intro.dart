@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:maybank2u/application/localizations.dart';
@@ -5,6 +6,9 @@ import 'package:maybank2u/icons/images.dart';
 import 'package:maybank2u/icons/my_flutter_app_icons.dart';
 import 'package:maybank2u/ui/intro/widgets/login.dart';
 import 'package:maybank2u/util/hook/page_controller_hook.dart';
+
+import 'bloc/bloc.dart';
+import 'widgets/login_drawer.dart';
 
 class Intro extends HookWidget {
   @override
@@ -43,15 +47,25 @@ class Intro extends HookWidget {
 
     return Scaffold(
         key: _scaffoldKey.value,
-        drawer: _currentIndex.value == 0 ? _LoginDrawer() : null,
+        drawer: _currentIndex.value == 0 ? LoginDrawer(
+          bloc: DrawerBloc(),
+        ) : null,
         body: SafeArea(
           key: Key('introBody'),
           child: Stack(
             children: <Widget>[
-              Image.network(
-                backgroundOneUrl,
+              CachedNetworkImage(
+
+                imageUrl: backgroundOneUrl,
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
+                errorWidget: (context, url, error) {
+
+                  print(error);
+                  return Container(
+                    color: Colors.red,
+                  );
+                },
               ),
               PageView(
                 physics: NeverScrollableScrollPhysics(),
@@ -69,23 +83,6 @@ class Intro extends HookWidget {
             _currentIndex.value = index;
           },
         ));
-  }
-}
-
-class _LoginDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Text("TEST"),
-            Text("TEST"),
-            Text("TEST"),
-          ],
-        ),
-      ),
-    );
   }
 }
 

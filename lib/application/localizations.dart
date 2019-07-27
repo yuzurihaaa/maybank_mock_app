@@ -73,6 +73,46 @@ class AppLocalizations {
       desc: 'good morning text',
     );
   }
+
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: 'about text',
+    );
+  }
+
+  String get applyOnline {
+    return Intl.message(
+      'Apply Online',
+      name: 'applyOnelin',
+      desc: 'apply online text',
+    );
+  }
+
+  String get needHelp {
+    return Intl.message(
+      'Need Help?',
+      name: 'applyOnelin',
+      desc: 'apply online text',
+    );
+  }
+
+  String get promotions {
+    return Intl.message(
+      'Promotions',
+      name: 'promotions',
+      desc: 'promotions text',
+    );
+  }
+
+  String get receiveMobileTransfer {
+    return Intl.message(
+      'Receive Mobile Transfer',
+      name: 'receiveMobileTransfer',
+      desc: 'receiveMobileTransfer text',
+    );
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
