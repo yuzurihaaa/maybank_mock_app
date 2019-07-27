@@ -41,24 +41,9 @@ class Intro extends HookWidget {
       ),
     ];
 
-    final locale = AppLocalizations.of(context);
-
     return Scaffold(
         key: _scaffoldKey.value,
-        backgroundColor: Colors.black,
-        drawer: _currentIndex.value == 0
-            ? Drawer(
-                child: SafeArea(
-                  child: Column(
-                    children: <Widget>[
-                      Text("TEST"),
-                      Text("TEST"),
-                      Text("TEST"),
-                    ],
-                  ),
-                ),
-              )
-            : null,
+        drawer: _currentIndex.value == 0 ? _LoginDrawer() : null,
         body: SafeArea(
           key: Key('introBody'),
           child: Stack(
@@ -76,41 +61,73 @@ class Intro extends HookWidget {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          key: Key('bottomNavigationBar'),
+        bottomNavigationBar: _BottomNavigation(
           currentIndex: _currentIndex.value,
-          selectedItemColor: Colors.amber[800],
           onTap: (index) {
             _pageController.animateToPage(index,
                 duration: Duration(seconds: 1), curve: Curves.ease);
-
             _currentIndex.value = index;
           },
-          backgroundColor: Colors.red,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              backgroundColor: Colors.black,
-              icon: Icon(Icons.person_outline),
-              title: Text(locale.login),
-            ),
-            BottomNavigationBarItem(
-              backgroundColor: Colors.black,
-              icon: Icon(Icons.mail_outline),
-              title: Text(locale.inbox),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(MyFlutterApp.qrcode),
-              title: Text(locale.qrPay),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.local_offer),
-              title: Text(locale.raya_returns),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.security),
-              title: Text(locale.secure2u),
-            ),
-          ],
         ));
+  }
+}
+
+class _LoginDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Text("TEST"),
+            Text("TEST"),
+            Text("TEST"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BottomNavigation extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+
+  const _BottomNavigation({Key key, this.currentIndex, this.onTap})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final locale = AppLocalizations.of(context);
+    return BottomNavigationBar(
+      key: Key('bottomNavigationBar'),
+      currentIndex: currentIndex,
+      selectedItemColor: Colors.amber[800],
+      onTap: onTap,
+      items: <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          backgroundColor: Colors.black,
+          icon: Icon(Icons.person_outline),
+          title: Text(locale.login),
+        ),
+        BottomNavigationBarItem(
+          backgroundColor: Colors.black,
+          icon: Icon(Icons.mail_outline),
+          title: Text(locale.inbox),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(MyFlutterApp.qrcode),
+          title: Text(locale.qrPay),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.local_offer),
+          title: Text(locale.rayaReturns),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.security),
+          title: Text(locale.secure2u),
+        ),
+      ],
+    );
   }
 }

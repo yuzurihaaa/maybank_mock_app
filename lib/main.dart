@@ -37,8 +37,22 @@ class MyApp extends StatelessWidget {
       onGenerateTitle: (context) => AppLocalizations.of(context).title,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          scaffoldBackgroundColor: Colors.black,
+          primarySwatch: Colors.amber,
+          primaryColor: Colors.amber[800],
+          accentColor: Colors.black,
+          iconTheme: Theme.of(context).iconTheme.copyWith(
+            color: Colors.white
+          ),
+          textTheme: Theme.of(context).textTheme.copyWith(
+              headline: Theme.of(context)
+                  .textTheme
+                  .headline
+                  .copyWith(color: Colors.white),
+              subtitle: Theme.of(context)
+                  .textTheme
+                  .subtitle
+                  .copyWith(color: Colors.white))),
       home: home,
     );
   }

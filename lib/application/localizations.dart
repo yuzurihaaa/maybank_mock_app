@@ -50,7 +50,7 @@ class AppLocalizations {
     );
   }
 
-  String get raya_returns {
+  String get rayaReturns {
     return Intl.message(
       'Raya Returns',
       name: 'raya_returns',
@@ -63,6 +63,14 @@ class AppLocalizations {
       'secure2u',
       name: 'secure2u',
       desc: 'secure2u text',
+    );
+  }
+
+  String get goodMorning {
+    return Intl.message(
+      'Good Morning',
+      name: 'goodMorning',
+      desc: 'good morning text',
     );
   }
 }
