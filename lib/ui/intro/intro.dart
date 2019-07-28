@@ -8,7 +8,7 @@ import 'package:maybank2u/ui/intro/widgets/login.dart';
 import 'package:maybank2u/util/hook/page_controller_hook.dart';
 
 import 'bloc/bloc.dart';
-import 'widgets/login_drawer.dart';
+import 'package:maybank2u/ui/intro/widgets/drawer/login_drawer.dart';
 
 class Intro extends HookWidget {
   @override

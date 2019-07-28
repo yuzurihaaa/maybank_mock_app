@@ -8,4 +8,6 @@ abstract class DrawerState extends Equatable {
 
 class InitialDrawerState extends DrawerState {}
 
+class UserAccount extends DrawerState {}
+
 class AboutState extends DrawerState {}

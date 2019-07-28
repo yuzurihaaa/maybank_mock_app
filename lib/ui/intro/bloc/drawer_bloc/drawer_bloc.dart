@@ -11,9 +11,20 @@ class DrawerBloc extends Bloc<DrawerEvent, DrawerState> {
   Stream<DrawerState> mapEventToState(
     DrawerEvent event,
   ) async* {
+    if (event is Reset) {
+      yield InitialDrawerState();
+    }
 
     if (event is ShowAbout) {
       yield AboutState();
+    }
+
+    if (event is ShowAccount) {
+      if (currentState is UserAccount) {
+        yield InitialDrawerState();
+      } else {
+        yield UserAccount();
+      }
     }
   }
 }

@@ -113,6 +113,14 @@ class AppLocalizations {
       desc: 'receiveMobileTransfer text',
     );
   }
+
+  String get manageAccount {
+    return Intl.message(
+      'Manage Account',
+      name: 'manageAccount',
+      desc: 'manageAccount text',
+    );
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

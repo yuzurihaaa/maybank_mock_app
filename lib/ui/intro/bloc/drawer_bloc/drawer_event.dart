@@ -7,4 +7,10 @@ abstract class DrawerEvent extends Equatable {
 }
 
 class ShowAbout extends DrawerEvent {}
+
 class ShowPrevious extends DrawerEvent {}
+
+class ShowAccount extends DrawerEvent {
+
+}
+class Reset extends DrawerEvent {}
