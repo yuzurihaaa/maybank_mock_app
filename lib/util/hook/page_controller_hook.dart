@@ -1,12 +1,23 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class PageControllerHook extends Hook<PageController> {
+PageController usePageController({
+  int initialPage = 0,
+  bool keepPage = true,
+  double viewportFraction = 1.0,
+}) =>
+    Hook.use(_PageControllerHook(
+      initialPage: initialPage,
+      keepPage: keepPage,
+      viewportFraction: viewportFraction,
+    ));
+
+class _PageControllerHook extends Hook<PageController> {
   final int initialPage;
   final bool keepPage;
   final double viewportFraction;
 
-  const PageControllerHook({
+  const _PageControllerHook({
     this.initialPage = 0,
     this.keepPage = true,
     this.viewportFraction = 1.0,
@@ -18,7 +29,7 @@ class PageControllerHook extends Hook<PageController> {
 }
 
 class _PageControllerHookState
-    extends HookState<PageController, PageControllerHook> {
+    extends HookState<PageController, _PageControllerHook> {
   PageController _pageController;
 
   @override

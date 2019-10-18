@@ -5,7 +5,6 @@ import 'package:maybank2u/application/injector.dart';
 
 import 'package:maybank2u/main.dart';
 import 'package:maybank2u/ui/intro/intro.dart';
-import 'package:maybank2u/ui/splash/splash.dart';
 
 void main() {
 
@@ -28,7 +27,7 @@ void main() {
 
       // Check bottom navigation bar
       expect(find.byKey(Key('bottomNavigationBar')), findsOneWidget);
-      expect(find.text('Login'), findsOneWidget);
+      expect(find.text('Login'), findsNWidgets(2));
       expect(find.text('Inbox'), findsOneWidget);
       expect(find.text('QrPay'), findsOneWidget);
       expect(find.text('Raya Returns'), findsOneWidget);

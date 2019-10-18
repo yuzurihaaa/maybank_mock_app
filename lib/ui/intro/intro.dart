@@ -17,7 +17,7 @@ class Intro extends HookWidget {
     final _scaffoldKey =
         useState<GlobalKey<ScaffoldState>>(GlobalKey<ScaffoldState>());
 
-    final _pageController = Hook.use(PageControllerHook());
+    final _pageController = usePageController();
 
     final TextStyle optionStyle =
         TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
