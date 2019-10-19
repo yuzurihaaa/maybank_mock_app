@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cirrusci/flutter:v1.5.8
+      - image: cirrusci/flutter
       - image: kaskada/lcov
 
     steps:
@@ -10,7 +10,9 @@ jobs:
 
       - run:
           name: Run Flutter doctor
-          command: flutter doctor
+          command: |
+            flutter upgrade
+            flutter doctor
 
       - run:
           name: Run the application tests
