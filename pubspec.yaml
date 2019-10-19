@@ -43,6 +43,9 @@ dev_dependencies:
     sdk: flutter
   image_test_utils: ^1.0.0
 
+dependency_overrides:
+  quiver: ^2.0.3
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
