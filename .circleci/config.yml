@@ -18,5 +18,8 @@ jobs:
             flutter test --coverage
             genhtml -o coverage coverage/lcov.info
 
+      - codecov/upload:
+          file: coverage/
+
 
 
