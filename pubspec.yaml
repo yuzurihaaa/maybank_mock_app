@@ -42,6 +42,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   image_test_utils: ^1.0.0
+  coverage: ^0.13.3
+
+executables:
+  dart_codecov_generator:
+  generate_coverage:
 
 dependency_overrides:
   quiver: ^2.0.3
