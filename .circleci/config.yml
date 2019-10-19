@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: cirrusci/flutter:v1.5.8
+      - image: kaskada/lcov
 
     steps:
       - checkout
@@ -14,7 +15,6 @@ jobs:
       - run:
           name: Run the application tests
           command: |
-            apt-get install -y lcov
             flutter test --coverage
             genhtml -o coverage coverage/lcov.info
 
