@@ -1,8 +1,28 @@
-version: 2
+version: 2.1
 jobs:
+  orbs:
+    codecov: codecov/codecov@1.0.5
+    token: 8b017ed0-0075-4f62-bc8f-91ab5fea4a72
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: cirrusci/flutter:v1.5.8
+
     steps:
       - checkout
-      - run: echo "A first hello"
+
+      - run:
+          name: Run Flutter doctor
+          command: flutter doctor
+
+      - run:
+          name: Run the application tests
+          command: |
+            apt-get install -y lcov
+            flutter test --coverage
+            genhtml -o coverage coverage/lcov.info
+      - codecov/upload:
+          file: coverage/index.html
+          flags: frontend
+
+
+
