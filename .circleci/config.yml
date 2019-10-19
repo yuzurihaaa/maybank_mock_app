@@ -1,7 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.5
-  token: 8b017ed0-0075-4f62-bc8f-91ab5fea4a72
 jobs:
   build:
     docker:
@@ -20,9 +17,6 @@ jobs:
             apt-get install -y lcov
             flutter test --coverage
             genhtml -o coverage coverage/lcov.info
-      - codecov/upload:
-          file: coverage/index.html
-          flags: frontend
 
 
 
