@@ -1,0 +1,27 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.4
+jobs:
+  build:
+    docker:
+      - image: cirrusci/flutter
+      - image: kaskada/lcov
+
+    steps:
+      - checkout
+
+      - run:
+          name: Run Flutter doctor
+          command: flutter doctor
+
+      - run:
+          name: Run the application tests
+          command: |
+            flutter test --coverage
+            genhtml -o coverage coverage/lcov.info
+
+      - codecov/upload:
+          file: coverage/lcov.info
+
+
+
