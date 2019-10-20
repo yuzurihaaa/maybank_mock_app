@@ -1,4 +1,6 @@
-# maybank2u
+# maybank2u clone
+
+[![codecov](https://codecov.io/gh/zaralockheart/maybank_mock_app/branch/master/graph/badge.svg)](https://codecov.io/gh/zaralockheart/maybank_mock_app)
 
 Disclaimer:
 No this is not the official [Maybank](https://play.google.com/store/apps/details?id=my.com.maybank2u.m2umobile&hl=en) App. I am just bored.
