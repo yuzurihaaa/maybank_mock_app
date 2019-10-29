@@ -27,3 +27,4 @@ comment:
 ignore:
   - "lib/icons/*.dart"
   - "lib/application/messages_*.dart"
+  - "lib/main.dart"
