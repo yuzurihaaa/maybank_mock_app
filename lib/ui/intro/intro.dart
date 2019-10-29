@@ -7,8 +7,7 @@ import 'package:maybank2u/icons/my_flutter_app_icons.dart';
 import 'package:maybank2u/ui/intro/widgets/login.dart';
 import 'package:maybank2u/util/hook/page_controller_hook.dart';
 
-import 'bloc/bloc.dart';
-import 'package:maybank2u/ui/intro/widgets/drawer/login_drawer.dart';
+import 'widgets/drawer/main_drawer.dart';
 
 class Intro extends HookWidget {
   @override
@@ -47,20 +46,20 @@ class Intro extends HookWidget {
 
     return Scaffold(
         key: _scaffoldKey.value,
-        drawer: _currentIndex.value == 0 ? LoginDrawer(
-          bloc: DrawerBloc(),
-        ) : null,
+        drawer: _currentIndex.value == 0
+            ? MainDrawer(
+                closeDrawer: () => Navigator.pop(context),
+              )
+            : null,
         body: SafeArea(
           key: Key('introBody'),
           child: Stack(
             children: <Widget>[
               CachedNetworkImage(
-
                 imageUrl: backgroundOneUrl,
                 fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width,
                 errorWidget: (context, url, error) {
-
                   print(error);
                   return Container(
                     color: Colors.red,

@@ -24,8 +24,10 @@ class Login extends HookWidget {
           ),
           Spacer(),
           CircleImage(
-              image: NetworkImage(
-                  "https://i.pinimg.com/originals/9f/a9/09/9fa909dfc88576fbe4c73e6bbffbe753.png")),
+            image: NetworkImage(
+              'https://i.pinimg.com/originals/9f/a9/09/9fa909dfc88576fbe4c73e6bbffbe753.png',
+            ),
+          ),
           Text(
             locale.goodMorning.toUpperCase(),
             style: Theme.of(context).textTheme.headline,
@@ -37,7 +39,7 @@ class Login extends HookWidget {
                 borderRadius: BorderRadius.all(Radius.circular(30)),
                 border: Border.all(color: Colors.white)),
             child: Text(
-              'Secret Phrase',
+              locale.secretPhrase,
               style: Theme.of(context).textTheme.subtitle,
             ),
           ),
