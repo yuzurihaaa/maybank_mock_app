@@ -1,0 +1,3 @@
+ignore:
+  - "icons/*.dart"
+  - "application/messages_*.dart"
