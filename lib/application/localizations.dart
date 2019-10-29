@@ -18,6 +18,14 @@ class AppLocalizations {
   static AppLocalizations of(BuildContext context) =>
       Localizations.of<AppLocalizations>(context, AppLocalizations);
 
+  String get copyright {
+    return Intl.message(
+      '©  MAYBANK2U - Mock',
+      name: 'copyright',
+      desc: 'copyright text',
+    );
+  }
+
   String get title {
     return Intl.message(
       'Maybank2u',
@@ -119,6 +127,38 @@ class AppLocalizations {
       'Manage Account',
       name: 'manageAccount',
       desc: 'manageAccount text',
+    );
+  }
+
+  String get termsCondition {
+    return Intl.message(
+      'Terms & Conditions',
+      name: 'termsCondition',
+      desc: 'termsCondition text',
+    );
+  }
+
+  String get securityTips {
+    return Intl.message(
+      'Cecurity Tips',
+      name: 'securityTips',
+      desc: 'securityTips text',
+    );
+  }
+
+  String get privacyNotice {
+    return Intl.message(
+      'Privacy Notice',
+      name: 'privacyNotice',
+      desc: 'privacyNotice text',
+    );
+  }
+
+  String get secretPhrase {
+    return Intl.message(
+      'Secret Phrase',
+      name: 'secretPhrase',
+      desc: 'secretPhrase text',
     );
   }
 }

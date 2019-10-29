@@ -2,25 +2,21 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-
-import 'bloc/bloc.dart';
+import 'package:maybank2u/application/injector.dart';
+import 'package:maybank2u/application/navigation.dart';
 
 class Splash extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    SplashBloc bloc;
     useEffect(() {
-      bloc = SplashBloc();
-
       final timer = Timer(Duration(seconds: 1), () {
-        bloc.dispatch(NavigateLogin());
+        locator<NavigationService>().navigateReplace('/login');
       });
 
       return () {
         timer.cancel();
-        bloc.dispose();
       };
-    }, [bloc]);
+    }, [false]);
 
     return Scaffold(
       key: Key('splash'),
