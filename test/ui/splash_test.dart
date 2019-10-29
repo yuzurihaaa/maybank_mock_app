@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image_test_utils/image_test_utils.dart';
 import 'package:maybank2u/application/injector.dart';
 
 import 'package:maybank2u/application/application.dart';
@@ -27,5 +28,23 @@ void main() {
 
     // Verify that our counter starts at 0.
     expect(find.byKey(Key('splash')), findsOneWidget);
+  });
+
+  testWidgets('Test splash navigate to Login', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    provideMockedNetworkImages(() async {
+      await tester.pumpWidget(MyApp(
+        home: Splash(),
+      ));
+
+      await tester.pump();
+
+      await tester.pump(Duration(seconds: 1));
+
+      await tester.pumpAndSettle();
+
+      // Verify that our counter starts at 0.
+      expect(find.byKey(Key('introBody')), findsOneWidget);
+    });
   });
 }
