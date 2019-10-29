@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:image_test_utils/image_test_utils.dart';
 import 'package:maybank2u/application/injector.dart';
 
-import 'package:maybank2u/main.dart';
+import 'package:maybank2u/application/application.dart';
 import 'package:maybank2u/ui/intro/intro.dart';
 
 void main() {

@@ -9,11 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:maybank2u/application/injector.dart';
 
-import 'package:maybank2u/main.dart';
+import 'package:maybank2u/application/application.dart';
 import 'package:maybank2u/ui/splash/splash.dart';
 
 void main() {
-
   setUpAll(() {
     setupLocator();
   });
