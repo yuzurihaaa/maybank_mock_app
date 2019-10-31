@@ -8,6 +8,7 @@ import 'package:maybank2u/ui/intro/widgets/login.dart';
 import 'package:maybank2u/util/hook/page_controller_hook.dart';
 
 import 'widgets/drawer/main_drawer.dart';
+import 'widgets/inbox.dart';
 
 class Intro extends HookWidget {
   @override
@@ -26,10 +27,7 @@ class Intro extends HookWidget {
         key: Key('login'),
         scaffoldKey: _scaffoldKey.value,
       ),
-      Text(
-        'Index 1: Business',
-        style: optionStyle,
-      ),
+      Inbox(),
       Text(
         'Index 2: School',
         style: optionStyle,

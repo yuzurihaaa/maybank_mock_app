@@ -23,9 +23,12 @@ class Login extends HookWidget {
             scaffoldKey: scaffoldKey,
           ),
           Spacer(),
-          CircleImage(
-            image: NetworkImage(
-              'https://i.pinimg.com/originals/9f/a9/09/9fa909dfc88576fbe4c73e6bbffbe753.png',
+          Container(
+            margin: EdgeInsets.all(10),
+            child: CircleImage(
+              image: NetworkImage(
+                'https://i.pinimg.com/originals/9f/a9/09/9fa909dfc88576fbe4c73e6bbffbe753.png',
+              ),
             ),
           ),
           Text(

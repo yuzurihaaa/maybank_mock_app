@@ -161,6 +161,30 @@ class AppLocalizations {
       desc: 'secretPhrase text',
     );
   }
+
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: 'all text',
+    );
+  }
+
+  String get transaction {
+    return Intl.message(
+      'Transaction',
+      name: 'transaction',
+      desc: 'transaction text',
+    );
+  }
+
+  String get myMessages {
+    return Intl.message(
+      'My Messages',
+      name: 'myMessages',
+      desc: 'myMessages text',
+    );
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
