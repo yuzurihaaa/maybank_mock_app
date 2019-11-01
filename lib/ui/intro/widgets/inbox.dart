@@ -25,8 +25,8 @@ class Inbox extends HookWidget {
           child: TabBarView(
             children: <Widget>[
               _InboxList(),
-              Container(),
-              Container(),
+              _InboxList(),
+              _InboxList(),
             ],
           ),
         ),
@@ -69,7 +69,11 @@ class _InboxList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        InboxItem(),
+        InboxItem(
+          recipient: 'Transfer to PERSATUAN PENDUDUK S',
+          amount: 'RM 40.00',
+          time: '30 Oct 07:37 am',
+        ),
       ],
     );
   }
@@ -77,6 +81,17 @@ class _InboxList extends StatelessWidget {
 
 @visibleForTesting
 class InboxItem extends StatelessWidget {
+  final String time;
+  final String recipient;
+  final String amount;
+
+  const InboxItem({
+    Key key,
+    this.time ='-',
+    this.recipient ='-',
+    this.amount = '-',
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -102,7 +117,7 @@ class InboxItem extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text('30 Oct 07:37 am'),
+                      Text(time),
                       Row(
                         children: <Widget>[
                           Icon(
@@ -117,7 +132,7 @@ class InboxItem extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text('Transfer to PERSATUAN PENDUDUK S'),
+                  child: Text(recipient),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -129,7 +144,7 @@ class InboxItem extends StatelessWidget {
                     children: <Widget>[
                       Text('Maybank ***3155'),
                       Text(
-                        'RM 40.00',
+                        amount,
                         style: Theme.of(context)
                             .textTheme
                             .subtitle
