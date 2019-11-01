@@ -14,7 +14,7 @@ void main() {
 
   testWidgets('Intro page render nicely', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    provideMockedNetworkImages(() async {
+    await provideMockedNetworkImages(() async {
       await tester.pumpWidget(MyApp(
         home: Intro(),
       ));
@@ -32,6 +32,48 @@ void main() {
       expect(find.text('QrPay'), findsOneWidget);
       expect(find.text('Raya Returns'), findsOneWidget);
       expect(find.text('secure2u'), findsOneWidget);
+    });
+  });
+
+  testWidgets('Smoke test tapping bottom navigation', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    provideMockedNetworkImages(() async {
+      await tester.pumpWidget(MyApp(
+        home: Intro(),
+      ));
+
+      await tester.pump();
+
+      await tester.tap(find.text('Inbox'));
+
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('QrPay'));
+    });
+  });
+
+  testWidgets('Smoke test drawer', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await provideMockedNetworkImages(() async {
+      await tester.pumpWidget(MyApp(
+        home: Intro(),
+      ));
+
+      await tester.pump();
+
+      await tester.tap(find.byKey(Key('drawer button')));
+
+      await tester.pumpAndSettle();
+
+      final drawerCloseButton = find.byKey(Key('close button'));
+
+      expect(drawerCloseButton, findsOneWidget);
+
+      await tester.tap(drawerCloseButton);
+
+      await tester.pumpAndSettle();
+
+      expect(drawerCloseButton, findsNothing);
     });
   });
 }

@@ -103,6 +103,7 @@ class _TopBar extends StatelessWidget {
     return Row(
       children: <Widget>[
         IconButton(
+          key: Key('drawer button'),
             icon: Icon(Icons.menu),
             onPressed: () => scaffoldKey.currentState.openDrawer()),
         Expanded(
