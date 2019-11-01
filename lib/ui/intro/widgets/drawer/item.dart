@@ -37,13 +37,15 @@ class Item extends StatelessWidget {
                   icon,
                   color: Colors.grey[700],
                 ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Text(
-                  text,
-                  style: Theme.of(context).textTheme.subtitle.copyWith(
-                        color: Colors.grey[700],
-                      ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    text,
+                    style: Theme.of(context).textTheme.subtitle.copyWith(
+                      color: Colors.grey[700],
+                    ),
+                  ),
                 ),
               ),
               if (endIcon != null) ...[
