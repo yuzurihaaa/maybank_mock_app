@@ -3,8 +3,7 @@ import 'package:maybank2u/ui/intro/intro.dart';
 import 'package:maybank2u/ui/splash/splash.dart';
 
 class NavigationService {
-  final GlobalKey<NavigatorState> navigatorKey =
-      new GlobalKey<NavigatorState>();
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   Future<dynamic> navigateTo(
     String routeName, {
@@ -23,10 +22,10 @@ class NavigationService {
   static Route<dynamic> navigate(RouteSettings settings) {
     switch (settings.name) {
       case '/login':
-        return MaterialPageRoute(builder: (context) => Intro());
+        return MaterialPageRoute<dynamic>(builder: (BuildContext context) => Intro());
       default:
         // Default Screen
-        return MaterialPageRoute(builder: (context) => Splash());
+        return MaterialPageRoute<dynamic>(builder: (BuildContext context) => Splash());
     }
   }
 }

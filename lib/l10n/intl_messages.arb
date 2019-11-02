@@ -1,8 +1,110 @@
 {
-  "@@last_modified": "2019-07-24T23:23:41.395149",
+  "@@last_modified": "2019-11-02T12:06:33.818566",
+  "copyright": "©  MAYBANK2U - Mock",
+  "@copyright": {
+    "description": "copyright text",
+    "type": "text",
+    "placeholders": {}
+  },
   "title": "Maybank2u",
   "@title": {
     "description": "Title for the application",
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "description": "login text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "inbox": "Inbox",
+  "@inbox": {
+    "description": "inbox text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "qrPay": "QrPay",
+  "@qrPay": {
+    "description": "qrPay text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "rayaReturns": "Raya Returns",
+  "@rayaReturns": {
+    "description": "raya returns",
+    "type": "text",
+    "placeholders": {}
+  },
+  "secure2u": "secure2u",
+  "@secure2u": {
+    "description": "secure2u text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "goodMorning": "Good Morning",
+  "@goodMorning": {
+    "description": "good morning text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "about": "About",
+  "@about": {
+    "description": "about text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "applyOnline": "Apply Online",
+  "@applyOnline": {
+    "description": "apply online text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "needHelp": "Need Help?",
+  "@needHelp": {
+    "description": "need Help text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "promotions": "Promotions",
+  "@promotions": {
+    "description": "promotions text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "receiveMobileTransfer": "Receive Mobile Transfer",
+  "@receiveMobileTransfer": {
+    "description": "receiveMobileTransfer text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "manageAccount": "Manage Account",
+  "@manageAccount": {
+    "description": "manageAccount text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "termsCondition": "Terms & Conditions",
+  "@termsCondition": {
+    "description": "termsCondition text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "securityTips": "Cecurity Tips",
+  "@securityTips": {
+    "description": "securityTips text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "privacyNotice": "Privacy Notice",
+  "@privacyNotice": {
+    "description": "privacyNotice text",
+    "type": "text",
+    "placeholders": {}
+  },
+  "secretPhrase": "Secret Phrase",
+  "@secretPhrase": {
+    "description": "secretPhrase text",
     "type": "text",
     "placeholders": {}
   }

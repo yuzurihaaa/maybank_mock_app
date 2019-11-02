@@ -5,7 +5,6 @@ jobs:
   build:
     docker:
       - image: cirrusci/flutter
-      - image: kaskada/lcov
 
     steps:
       - checkout
@@ -15,13 +14,15 @@ jobs:
           command: flutter doctor
 
       - run:
+          name: Run Flutter Analyzer
+          command: |
+            flutter packages get
+            dartanalyzer --options analysis_options.yaml . --format -h
+
+      - run:
           name: Run the application tests
           command: |
             flutter test --coverage
-            genhtml -o coverage coverage/lcov.info
 
       - codecov/upload:
           file: coverage/lcov.info
-
-
-
