@@ -61,14 +61,14 @@ class _TabBar extends StatelessWidget implements PreferredSizeWidget {
   @override
 
   /// Refer `Size.fromHeight(_kTabHeight + indicatorWeight);`
-  Size get preferredSize => Size.fromHeight(46.0 + 2);
+  Size get preferredSize => const Size.fromHeight(46.0 + 2);
 }
 
 class _InboxList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: <Widget>[
+      children: const <Widget>[
         InboxItem(
           recipient: 'Transfer to PERSATUAN PENDUDUK S',
           amount: 'RM 40.00',
@@ -81,9 +81,6 @@ class _InboxList extends StatelessWidget {
 
 @visibleForTesting
 class InboxItem extends StatelessWidget {
-  final String time;
-  final String recipient;
-  final String amount;
 
   const InboxItem({
     Key key,
@@ -92,6 +89,10 @@ class InboxItem extends StatelessWidget {
     this.amount = '-',
   }) : super(key: key);
 
+  final String time;
+  final String recipient;
+  final String amount;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -99,9 +100,9 @@ class InboxItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          CircleImage(
-            image: NetworkImage(''),
-            size: const Size(50, 50),
+          const CircleImage(
+            image: NetworkImage('https://img.freepik.com/free-vector/dollar_53876-25498.jpg?size=338&ext=jpg'),
+            size: Size(50, 50),
           ),
           Expanded(
             child: Column(
@@ -124,7 +125,7 @@ class InboxItem extends StatelessWidget {
                             Icons.flag,
                             color: Colors.black,
                           ),
-                          Text('Report')
+                          const Text('Report')
                         ],
                       )
                     ],
@@ -142,7 +143,7 @@ class InboxItem extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text('Maybank ***3155'),
+                      const Text('Maybank ***3155'),
                       Text(
                         amount,
                         style: Theme.of(context)

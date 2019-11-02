@@ -21,12 +21,12 @@ void main() {
 
       await tester.pump();
 
-      expect(find.byKey(Key('introBody')), findsOneWidget);
+      expect(find.byKey(const Key('introBody')), findsOneWidget);
 
-      expect(find.byKey(Key('login')), findsOneWidget);
+      expect(find.byKey(const Key('login')), findsOneWidget);
 
       // Check bottom navigation bar
-      expect(find.byKey(Key('bottomNavigationBar')), findsOneWidget);
+      expect(find.byKey(const Key('bottomNavigationBar')), findsOneWidget);
       expect(find.text('Login'), findsNWidgets(2));
       expect(find.text('Inbox'), findsOneWidget);
       expect(find.text('QrPay'), findsOneWidget);
@@ -61,11 +61,11 @@ void main() {
 
       await tester.pump();
 
-      await tester.tap(find.byKey(Key('drawer button')));
+      await tester.tap(find.byKey(const Key('drawer button')));
 
       await tester.pumpAndSettle();
 
-      final drawerCloseButton = find.byKey(Key('close button'));
+      final drawerCloseButton = find.byKey(const Key('close button'));
 
       expect(drawerCloseButton, findsOneWidget);
 

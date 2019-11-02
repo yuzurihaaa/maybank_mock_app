@@ -4,12 +4,13 @@ import 'package:maybank2u/application/localizations.dart';
 import 'package:maybank2u/widgets/circle_image.dart';
 
 class Login extends HookWidget {
-  final GlobalKey<ScaffoldState> scaffoldKey;
 
-  Login({
+  const Login({
     Key key,
     @required this.scaffoldKey,
   }) : super(key: key);
+
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,10 @@ class Login extends HookWidget {
           _TopBar(
             scaffoldKey: scaffoldKey,
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            margin: EdgeInsets.all(10),
-            child: CircleImage(
+            margin: const EdgeInsets.all(10),
+            child: const CircleImage(
               image: NetworkImage(
                 'https://i.pinimg.com/originals/9f/a9/09/9fa909dfc88576fbe4c73e6bbffbe753.png',
               ),
@@ -36,19 +37,19 @@ class Login extends HookWidget {
             style: Theme.of(context).textTheme.headline,
           ),
           Container(
-            margin: EdgeInsets.only(top: 15),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            margin: const EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(30)),
+                borderRadius: const BorderRadius.all(Radius.circular(30)),
                 border: Border.all(color: Colors.white)),
             child: Text(
               locale.secretPhrase,
               style: Theme.of(context).textTheme.subtitle,
             ),
           ),
-          Spacer(),
-          _LoginButton(),
-          Spacer(),
+          const Spacer(),
+          const _LoginButton(),
+          const Spacer(),
         ],
       ),
     );
@@ -70,9 +71,9 @@ class _LoginButton extends StatelessWidget {
         color: Colors.white,
         width: 2,
       ))),
-      margin: EdgeInsets.symmetric(horizontal: 40),
+      margin: const EdgeInsets.symmetric(horizontal: 40),
       child: FlatButton(
-        padding: EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         onPressed: () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,16 +95,16 @@ class _LoginButton extends StatelessWidget {
 }
 
 class _TopBar extends StatelessWidget {
-  final GlobalKey<ScaffoldState> scaffoldKey;
-
   const _TopBar({Key key, this.scaffoldKey}) : super(key: key);
+
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         IconButton(
-          key: Key('drawer button'),
+          key: const Key('drawer button'),
             icon: Icon(Icons.menu),
             onPressed: () => scaffoldKey.currentState.openDrawer()),
         Expanded(

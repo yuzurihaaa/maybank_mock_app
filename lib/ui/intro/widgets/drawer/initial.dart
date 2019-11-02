@@ -7,14 +7,15 @@ import 'item.dart';
 import 'main_drawer.dart';
 
 class Initial extends HookWidget {
-  final ValueNotifier<DrawerState> state;
-  final VoidCallback onClickProfile;
 
-  Initial({
+  const Initial({
     Key key,
     this.state,
     this.onClickProfile,
   }) : super(key: key);
+
+  final ValueNotifier<DrawerState> state;
+  final VoidCallback onClickProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +39,15 @@ class Initial extends HookWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Item(
-          key: Key('account'),
+          key: const Key('account'),
           first: true,
           icon: Icons.person_outline,
-          text: "Le***an",
+          text: 'Le***an',
           endIcon: Icons.keyboard_arrow_down,
           onPress: onClickProfile,
         ),
         AnimatedSwitcher(
-            duration: Duration(milliseconds: 400),
+            duration: const Duration(milliseconds: 400),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -61,7 +62,7 @@ class Initial extends HookWidget {
                           ))
                 else
                   Item(
-                    key: Key('manage account'),
+                    key: const Key('manage account'),
                     icon: Icons.settings,
                     text: locale.manageAccount,
                   )

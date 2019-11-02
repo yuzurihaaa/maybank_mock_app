@@ -5,27 +5,28 @@ import 'package:maybank2u/application/localizations.dart';
 import 'package:maybank2u/application/navigation.dart';
 
 class MyApp extends StatelessWidget {
-  final Widget home;
 
   const MyApp({Key key, this.home}) : super(key: key);
+
+  final Widget home;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       localizationsDelegates: [
-        AppLocalizationsDelegate(),
+        const AppLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
-        const Locale('en'),
-        const Locale('MY'),
+      supportedLocales: const [
+        Locale('en'),
+        Locale('MY'),
       ],
       onGenerateRoute: NavigationService.navigate,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      onGenerateTitle: (context) => AppLocalizations.of(context).title,
+      onGenerateTitle: (BuildContext context) => AppLocalizations.of(context).title,
       title: 'Flutter Demo',
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.black,

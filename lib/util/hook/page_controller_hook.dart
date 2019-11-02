@@ -13,15 +13,15 @@ PageController usePageController({
     ));
 
 class _PageControllerHook extends Hook<PageController> {
-  final int initialPage;
-  final bool keepPage;
-  final double viewportFraction;
-
   const _PageControllerHook({
     this.initialPage = 0,
     this.keepPage = true,
     this.viewportFraction = 1.0,
   });
+
+  final int initialPage;
+  final bool keepPage;
+  final double viewportFraction;
 
   @override
   HookState<PageController, Hook<PageController>> createState() =>

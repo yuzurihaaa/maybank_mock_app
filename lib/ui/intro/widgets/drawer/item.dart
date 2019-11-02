@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Item extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final bool first;
-  final IconData endIcon;
-  final VoidCallback onPress;
 
   const Item({
     Key key,
@@ -16,12 +11,18 @@ class Item extends StatelessWidget {
     this.onPress,
   }) : super(key: key);
 
+  final IconData icon;
+  final String text;
+  final bool first;
+  final IconData endIcon;
+  final VoidCallback onPress;
+
   @override
   Widget build(BuildContext context) {
     final borderSide = BorderSide(color: Colors.grey[700]);
     return FlatButton(
       onPressed: onPress,
-      padding: EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       child: Container(
         decoration: BoxDecoration(
             border: BorderDirectional(
@@ -49,7 +50,7 @@ class Item extends StatelessWidget {
                 ),
               ),
               if (endIcon != null) ...[
-                Spacer(),
+                const Spacer(),
                 Icon(
                   endIcon,
                   color: Colors.grey[700],
