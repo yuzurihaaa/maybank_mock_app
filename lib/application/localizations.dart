@@ -53,15 +53,15 @@ class AppLocalizations {
   String get qrPay {
     return Intl.message(
       'QrPay',
-      name: 'qrpay',
-      desc: 'qrpay text',
+      name: 'qrPay',
+      desc: 'qrPay text',
     );
   }
 
   String get rayaReturns {
     return Intl.message(
       'Raya Returns',
-      name: 'raya_returns',
+      name: 'rayaReturns',
       desc: 'raya returns',
     );
   }
@@ -93,7 +93,7 @@ class AppLocalizations {
   String get applyOnline {
     return Intl.message(
       'Apply Online',
-      name: 'applyOnelin',
+      name: 'applyOnline',
       desc: 'apply online text',
     );
   }
@@ -101,8 +101,8 @@ class AppLocalizations {
   String get needHelp {
     return Intl.message(
       'Need Help?',
-      name: 'applyOnelin',
-      desc: 'apply online text',
+      name: 'needHelp',
+      desc: 'need Help text',
     );
   }
 
