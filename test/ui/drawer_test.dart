@@ -24,7 +24,7 @@ void main() {
 
       await tester.pump();
 
-      await tester.tap(find.byKey(Key('close button')));
+      await tester.tap(find.byKey(const Key('close button')));
 
       await tester.pumpAndSettle();
 
@@ -35,13 +35,13 @@ void main() {
   testWidgets('Test drawer tap about', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     provideMockedNetworkImages(() async {
-      await tester.pumpWidget(MyApp(
+      await tester.pumpWidget(const MyApp(
         home: MainDrawer(),
       ));
 
       await tester.pump();
 
-      await tester.tap(find.byKey(Key('about button')));
+      await tester.tap(find.byKey(const Key('about button')));
 
       await tester.pumpAndSettle();
 
@@ -54,25 +54,25 @@ void main() {
       (WidgetTester tester) async {
     // Build our app and trigger a frame.
     provideMockedNetworkImages(() async {
-      await tester.pumpWidget(MyApp(
+      await tester.pumpWidget(const MyApp(
         home: MainDrawer(),
       ));
 
       await tester.pump();
 
-      await tester.tap(find.byKey(Key('about button')));
+      await tester.tap(find.byKey(const Key('about button')));
 
       await tester.pumpAndSettle();
 
-      expect(find.byKey(Key('initial drawer')), findsNothing);
+      expect(find.byKey(const Key('initial drawer')), findsNothing);
       expect(find.text('Terms & Conditions'), findsOneWidget);
 
-      await tester.tap(find.byKey(Key('close button')));
+      await tester.tap(find.byKey(const Key('close button')));
 
       await tester.pumpAndSettle();
 
       expect(find.text('Terms & Conditions'), findsNothing);
-      expect(find.byKey(Key('initial drawer')), findsOneWidget);
+      expect(find.byKey(const Key('initial drawer')), findsOneWidget);
     });
   });
 
@@ -81,20 +81,20 @@ void main() {
       (WidgetTester tester) async {
     // Build our app and trigger a frame.
     provideMockedNetworkImages(() async {
-      await tester.pumpWidget(MyApp(
+      await tester.pumpWidget(const MyApp(
         home: MainDrawer(),
       ));
 
       await tester.pump();
 
-      expect(find.byKey(Key('account')), findsOneWidget);
-      expect(find.byKey(Key('manage account')), findsNothing);
+      expect(find.byKey(const Key('account')), findsOneWidget);
+      expect(find.byKey(const Key('manage account')), findsNothing);
 
-      await tester.tap(find.byKey(Key('account')));
+      await tester.tap(find.byKey(const Key('account')));
 
       await tester.pumpAndSettle();
 
-      expect(find.byKey(Key('manage account')), findsOneWidget);
+      expect(find.byKey(const Key('manage account')), findsOneWidget);
     });
   });
 
@@ -102,26 +102,26 @@ void main() {
       (WidgetTester tester) async {
     // Build our app and trigger a frame.
     provideMockedNetworkImages(() async {
-      await tester.pumpWidget(MyApp(
+      await tester.pumpWidget(const MyApp(
         home: MainDrawer(),
       ));
 
       await tester.pump();
 
-      expect(find.byKey(Key('account')), findsOneWidget);
-      expect(find.byKey(Key('manage account')), findsNothing);
+      expect(find.byKey(const Key('account')), findsOneWidget);
+      expect(find.byKey(const Key('manage account')), findsNothing);
 
-      await tester.tap(find.byKey(Key('account')));
-
-      await tester.pumpAndSettle();
-
-      expect(find.byKey(Key('manage account')), findsOneWidget);
-
-      await tester.tap(find.byKey(Key('close button')));
+      await tester.tap(find.byKey(const Key('account')));
 
       await tester.pumpAndSettle();
 
-      expect(find.byKey(Key('manage account')), findsNothing);
+      expect(find.byKey(const Key('manage account')), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('close button')));
+
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('manage account')), findsNothing);
     });
   });
 }

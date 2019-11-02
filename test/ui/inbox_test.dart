@@ -13,11 +13,11 @@ void main() {
 
   testWidgets('Test InboxItem with null value', (WidgetTester tester) async {
     provideMockedNetworkImages(() async {
-      final widget = Material(
+      const widget = Material(
         child: InboxItem(),
       );
 
-      await tester.pumpWidget(MyApp(
+      await tester.pumpWidget(const MyApp(
         home: widget,
       ));
 

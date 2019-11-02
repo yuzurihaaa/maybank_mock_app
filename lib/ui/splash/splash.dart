@@ -9,7 +9,7 @@ class Splash extends HookWidget {
   @override
   Widget build(BuildContext context) {
     useEffect(() {
-      final timer = Timer(Duration(seconds: 1), () {
+      final timer = Timer(const Duration(seconds: 1), () {
         locator<NavigationService>().navigateReplace('/login');
       });
 
@@ -19,9 +19,9 @@ class Splash extends HookWidget {
     }, [false]);
 
     return Scaffold(
-      key: Key('splash'),
+      key: const Key('splash'),
       backgroundColor: Colors.yellow[600],
-      body: Center(
+      body: const Center(
         child: FlutterLogo(
           size: 80,
         ),

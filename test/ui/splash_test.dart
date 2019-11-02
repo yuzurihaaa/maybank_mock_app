@@ -27,7 +27,7 @@ void main() {
     await tester.pump();
 
     // Verify that our counter starts at 0.
-    expect(find.byKey(Key('splash')), findsOneWidget);
+    expect(find.byKey(const Key('splash')), findsOneWidget);
   });
 
   testWidgets('Test splash navigate to Login', (WidgetTester tester) async {
@@ -39,12 +39,12 @@ void main() {
 
       await tester.pump();
 
-      await tester.pump(Duration(seconds: 1));
+      await tester.pump(const Duration(seconds: 1));
 
       await tester.pumpAndSettle();
 
       // Verify that our counter starts at 0.
-      expect(find.byKey(Key('introBody')), findsOneWidget);
+      expect(find.byKey(const Key('introBody')), findsOneWidget);
     });
   });
 }

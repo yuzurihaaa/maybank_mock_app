@@ -24,7 +24,7 @@ class Intro extends HookWidget {
 
     final List<Widget> _widgetOptions = <Widget>[
       Login(
-        key: Key('login'),
+        key: const Key('login'),
         scaffoldKey: _scaffoldKey.value,
       ),
       Inbox(),
@@ -50,7 +50,7 @@ class Intro extends HookWidget {
               )
             : null,
         body: SafeArea(
-          key: Key('introBody'),
+          key: const Key('introBody'),
           child: Stack(
             children: <Widget>[
               CachedNetworkImage(
@@ -65,7 +65,7 @@ class Intro extends HookWidget {
                 },
               ),
               PageView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 controller: _pageController,
                 children: _widgetOptions,
               )
@@ -75,8 +75,11 @@ class Intro extends HookWidget {
         bottomNavigationBar: _BottomNavigation(
           currentIndex: _currentIndex.value,
           onTap: (index) {
-            _pageController.animateToPage(index,
-                duration: Duration(seconds: 1), curve: Curves.ease);
+            _pageController.animateToPage(
+              index,
+              duration: const Duration(seconds: 1),
+              curve: Curves.ease,
+            );
             _currentIndex.value = index;
           },
         ));
@@ -84,17 +87,17 @@ class Intro extends HookWidget {
 }
 
 class _BottomNavigation extends StatelessWidget {
-  final int currentIndex;
-  final ValueChanged<int> onTap;
-
   const _BottomNavigation({Key key, this.currentIndex, this.onTap})
       : super(key: key);
+
+  final int currentIndex;
+  final ValueChanged<int> onTap;
 
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context);
     return BottomNavigationBar(
-      key: Key('bottomNavigationBar'),
+      key: const Key('bottomNavigationBar'),
       currentIndex: currentIndex,
       selectedItemColor: Colors.amber[800],
       onTap: onTap,

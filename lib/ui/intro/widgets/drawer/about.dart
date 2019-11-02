@@ -21,7 +21,7 @@ class About extends HookWidget {
         ),
         Item(text: locale.securityTips),
         Item(text: locale.privacyNotice),
-        Spacer(),
+        const Spacer(),
         Text(
           locale.copyright,
           style: Theme.of(context).textTheme.subtitle.copyWith(

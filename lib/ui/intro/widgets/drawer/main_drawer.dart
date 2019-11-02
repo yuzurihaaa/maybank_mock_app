@@ -7,12 +7,12 @@ import 'drawer.dart';
 enum DrawerState { Initial, About, Profile }
 
 class MainDrawer extends HookWidget {
-  final VoidCallback closeDrawer;
-
-  MainDrawer({
+  const MainDrawer({
     Key key,
     this.closeDrawer,
   }) : super(key: key);
+
+  final VoidCallback closeDrawer;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +22,15 @@ class MainDrawer extends HookWidget {
         useState<DrawerState>(DrawerState.Initial);
 
     final animateIcon = useAnimationController(
-      duration: Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 400),
     );
 
-    _changeView(DrawerState target) {
+    void _changeView(DrawerState target) {
       animateIcon.forward();
       state.value = target;
     }
 
-    _reverseView(DrawerState target) {
+    void _reverseView(DrawerState target) {
       animateIcon.reverse();
       state.value = target;
     }
@@ -59,7 +59,7 @@ class MainDrawer extends HookWidget {
           ShaderMask(
             shaderCallback: (rect) => LinearGradient(
               begin: Alignment.topCenter,
-              end: Alignment(0.0, -.3),
+              end: const Alignment(0.0, -.3),
               colors: [Colors.transparent, Colors.black, Colors.black],
             ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height)),
             blendMode: BlendMode.dstIn,
@@ -72,7 +72,7 @@ class MainDrawer extends HookWidget {
                     Row(
                       children: <Widget>[
                         IconButton(
-                          key: Key('close button'),
+                          key: const Key('close button'),
                           onPressed: () {
                             if (state.value == DrawerState.Initial) {
                               closeDrawer();
@@ -89,10 +89,10 @@ class MainDrawer extends HookWidget {
                       ],
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 50),
+                      padding: const EdgeInsets.symmetric(vertical: 50),
                       child: Center(
                         child: AnimatedSwitcher(
-                          duration: Duration(seconds: 1),
+                          duration: const Duration(seconds: 1),
                           child: Text(
                             title,
                             style: Theme.of(context).textTheme.headline,
@@ -102,11 +102,11 @@ class MainDrawer extends HookWidget {
                     ),
                     Expanded(
                       child: AnimatedSwitcher(
-                        duration: Duration(milliseconds: 400),
+                        duration: const Duration(milliseconds: 400),
                         child: (state.value == DrawerState.Initial ||
                                 state.value == DrawerState.Profile)
                             ? Initial(
-                                key: Key('initial drawer'),
+                                key: const Key('initial drawer'),
                                 state: state,
                                 onClickProfile: () =>
                                     state.value == DrawerState.Profile
@@ -118,8 +118,8 @@ class MainDrawer extends HookWidget {
                     ),
                     if (state.value == DrawerState.Initial)
                       FlatButton(
-                        key: Key('about button'),
-                        padding: EdgeInsets.all(0),
+                        key: const Key('about button'),
+                        padding: const EdgeInsets.all(0),
                         onPressed: () {},
                         child: Item(
                           onPress: () => _changeView(DrawerState.About),
