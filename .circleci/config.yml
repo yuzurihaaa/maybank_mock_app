@@ -15,7 +15,9 @@ jobs:
 
       - run:
           name: Run Flutter Analyzer
-          command: dartanalyzer --options analysis_options.yaml . --format -h
+          command: |
+            flutter packages get
+            dartanalyzer --options analysis_options.yaml . --format -h
 
       - run:
           name: Run the application tests
