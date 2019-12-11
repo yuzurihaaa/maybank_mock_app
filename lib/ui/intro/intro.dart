@@ -5,6 +5,7 @@ import 'package:maybank2u/application/localizations.dart';
 import 'package:maybank2u/icons/images.dart';
 import 'package:maybank2u/icons/my_flutter_app_icons.dart';
 import 'package:maybank2u/ui/intro/widgets/login.dart';
+import 'package:maybank2u/ui/intro/widgets/secure2u.dart';
 import 'package:maybank2u/util/hook/page_controller_hook.dart';
 
 import 'widgets/drawer/main_drawer.dart';
@@ -36,13 +37,20 @@ class Intro extends HookWidget {
         'Index 3: School',
         style: optionStyle,
       ),
-      Text(
-        'Index 4: School',
-        style: optionStyle,
-      ),
+      Secure2u(onPressCancel: () {
+        _pageController.animateTo(
+          0,
+          duration: const Duration(seconds: 1),
+          curve: Curves.easeIn,
+        );
+        _currentIndex.value = 0;
+      }),
     ];
 
     return Scaffold(
+        backgroundColor: _currentIndex.value >= _widgetOptions.length - 1
+            ? Colors.yellowAccent
+            : Colors.black,
         key: _scaffoldKey.value,
         drawer: _currentIndex.value == 0
             ? MainDrawer(
@@ -87,8 +95,11 @@ class Intro extends HookWidget {
 }
 
 class _BottomNavigation extends StatelessWidget {
-  const _BottomNavigation({Key key, this.currentIndex, this.onTap})
-      : super(key: key);
+  const _BottomNavigation({
+    Key key,
+    this.currentIndex,
+    this.onTap,
+  }) : super(key: key);
 
   final int currentIndex;
   final ValueChanged<int> onTap;
@@ -96,35 +107,38 @@ class _BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context);
-    return BottomNavigationBar(
-      key: const Key('bottomNavigationBar'),
-      currentIndex: currentIndex,
-      selectedItemColor: Colors.amber[800],
-      onTap: onTap,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          backgroundColor: Colors.black,
-          icon: Icon(Icons.person_outline),
-          title: Text(locale.login),
-        ),
-        BottomNavigationBarItem(
-          backgroundColor: Colors.black,
-          icon: Icon(Icons.mail_outline),
-          title: Text(locale.inbox),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(MyFlutterApp.qrcode),
-          title: Text(locale.qrPay),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.local_offer),
-          title: Text(locale.rayaReturns),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.security),
-          title: Text(locale.secure2u),
-        ),
-      ],
+    return Theme(
+      data: Theme.of(context)
+          .copyWith(canvasColor: Colors.black, primaryColor: Colors.red),
+      child: BottomNavigationBar(
+        key: const Key('bottomNavigationBar'),
+        currentIndex: currentIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: onTap,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            title: Text(locale.login),
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.black,
+            icon: Icon(Icons.mail_outline),
+            title: Text(locale.inbox),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(MyFlutterApp.qrcode),
+            title: Text(locale.qrPay),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_offer),
+            title: Text(locale.rayaReturns),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.security),
+            title: Text(locale.secure2u),
+          ),
+        ],
+      ),
     );
   }
 }
