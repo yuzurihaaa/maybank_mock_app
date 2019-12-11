@@ -12,8 +12,9 @@ ValueNotifier<Duration> useTicker([Duration initialData]) {
       return null;
     }
     final timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
-      result.value = Duration(
-        milliseconds: result.value.inMilliseconds - timer.tick * 1000,
+      result.value = getDuration(
+        result.value.inMilliseconds,
+        timer.tick * 1000,
       );
     });
 
@@ -21,6 +22,13 @@ ValueNotifier<Duration> useTicker([Duration initialData]) {
   });
 
   return result;
+}
+
+@visibleForTesting
+Duration getDuration(num source, num subtraction) {
+  return Duration(
+    milliseconds: source - subtraction,
+  );
 }
 
 AppLocalizations useLocale() {
