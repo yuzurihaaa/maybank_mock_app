@@ -18,6 +18,7 @@ class Secure2u extends HookWidget {
         backgroundColor: Colors.yellowAccent,
         elevation: 0,
         leading: IconButton(
+          key: const Key('secure2u cancel'),
           onPressed: onPressCancel,
           icon: Icon(Icons.close),
           color: Colors.black,
