@@ -8,10 +8,11 @@ ValueNotifier<Duration> useTicker([Duration initialData]) {
   final result = useState<Duration>(initialData);
 
   useEffect(() {
-    if (result.value.inSeconds <= 0) {
+    if (result.value.inSeconds < 0) {
       return null;
     }
-    final timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+
+    final timer = Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       result.value = getDuration(
         result.value.inMilliseconds,
         timer.tick * 1000,
@@ -35,4 +36,19 @@ AppLocalizations useLocale() {
   final context = useContext();
 
   return AppLocalizations.of(context);
+}
+
+/// A custom hook that wraps the useState hook to add logging. Hooks can be
+/// composed -- meaning you can use hooks within hooks!
+ValueNotifier<T> useLoggedState<T>([T initialData]) {
+  // First, call the useState hook. It will create a ValueNotifier for you that
+  // rebuilds the Widget whenever the value changes.
+  final result = useState<T>(initialData);
+
+  // Next, call the useValueChanged hook to print the state whenever it changes
+  useValueChanged(result.value, (T _, T __) {
+    print(result.value);
+  });
+
+  return result;
 }

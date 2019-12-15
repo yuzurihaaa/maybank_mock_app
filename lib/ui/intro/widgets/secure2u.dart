@@ -50,9 +50,15 @@ class Secure2u extends HookWidget {
 class _TimerText extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final _timer = useTicker(Duration(minutes: 3));
+    final _timer = useTicker(const Duration(seconds: 10));
 
     final _seconds = convertDigitToDoubleDigit(_timer.value.inSeconds % 60);
+
+    useEffect(() {
+      postFrameCallback(() => _timer.value = const Duration(seconds: 10));
+
+      return null;
+    }, [_timer.value < Duration.zero]);
 
     return Text(
       '${_timer.value.inMinutes}:$_seconds',
