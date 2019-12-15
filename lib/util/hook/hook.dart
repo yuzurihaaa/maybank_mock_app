@@ -37,18 +37,3 @@ AppLocalizations useLocale() {
 
   return AppLocalizations.of(context);
 }
-
-/// A custom hook that wraps the useState hook to add logging. Hooks can be
-/// composed -- meaning you can use hooks within hooks!
-ValueNotifier<T> useLoggedState<T>([T initialData]) {
-  // First, call the useState hook. It will create a ValueNotifier for you that
-  // rebuilds the Widget whenever the value changes.
-  final result = useState<T>(initialData);
-
-  // Next, call the useValueChanged hook to print the state whenever it changes
-  useValueChanged(result.value, (T _, T __) {
-    print(result.value);
-  });
-
-  return result;
-}
