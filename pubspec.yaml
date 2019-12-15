@@ -35,7 +35,7 @@ dependencies:
   intl_translation: ^0.17.7
   get_it: ^1.0.3+2
   flutter_svg: ^0.13.1
-  cached_network_image: ^1.1.1
+  cached_network_image: ^2.0.0-rc.1
   quiver: ^2.0.3
 
 dev_dependencies:
